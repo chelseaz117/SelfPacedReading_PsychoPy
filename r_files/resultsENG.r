@@ -67,6 +67,9 @@ summary(m_Region789) #nothing sig
 m_Region89 = lmer(log_R89 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeENG)
 summary(m_Region89) # RC1fac:RC2fac -0.0475380  0.0177715 70.9800000  -2.675  0.00927 ** 
 
+m_Region78_participant = lmer(log_R78 ~ dprimeT * Participant +(1|Item), wholeENG)
+summary(m_Region78_participant)
+
 OS_SO = subset(wholeENG, RC1fac==-0.5 & RC2fac==0.5| RC1fac==0.5 & RC2fac==-0.5)
 summary(OS_SO)
 m_Region78_OS_SO = lmer(log_R78 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), OS_SO)
