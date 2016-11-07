@@ -1,9 +1,9 @@
 library(lme4)
 library(lmerTest)
-wholeCHN = read.csv("/Users/chongzhang/Onedrive/Data-Analyses-R-Python-mySQL/csv files/CHN.csv")
-wholeCHN_CORR = read.csv("/Users/chongzhang/Onedrive/Data-Analyses-R-Python-mySQL/csv files/CHN_CORR.csv")
+wholeCHN = read.csv("/Users/ChongZhang/OneDrive/SelfPacedReading_PsychoPy/CHN.csv")
+
 summary(wholeCHN)
-summary(wholeCHN_CORR)
+
 
 #------------------------------------------------------------------------------------------------------#
 m_Region1 = lmer(log_R1 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeCHN)
@@ -23,6 +23,10 @@ summary(m_Region3_CORR)
 #------------------------------------------------------------------------------------------------------#
 m_Region4 = lmer(log_R4 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeCHN)
 summary(m_Region4) # RC1fac        -0.10052    0.01122 74.23000  -8.961 1.92e-13 ***
+
+m_Region34 = lmer(log_R34 ~ RC1fac * RC2fac + (1*log_R34*dprimeT|Participant)+(1*log_R34*dprimeT|Item), wholeCHN)
+summary(m_Region34) #RC1fac         0.037912   0.010018 74.160000   3.784  0.00031 ***
+
 m_Region4_CORR = lmer(log_R4 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeCHN_CORR)
 summary(m_Region4_CORR) # RC1fac        -0.101044   0.012626 76.900000  -8.003 1.01e-11 ***
 #------------------------------------------------------------------------------------------------------#
