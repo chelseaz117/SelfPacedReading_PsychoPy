@@ -77,6 +77,10 @@ m_Region12_CORR = lmer(log_R12 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant
 summary(m_Region12_CORR) # RC2fac         1.927e-02  9.092e-03  1.666e+03   2.119  0.03420 *  
                          # RC1fac:RC2fac -5.385e-02  1.820e-02  1.667e+03  -2.958  0.00314 **  
 #------------------------------------------------------------------------------------------------------#
+
+m_Region89 = lmer(log_R89 ~ RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeCHN)
+summary(m_Region89) # RC2fac      -0.02315    0.01008 77.35000  -2.296   0.0244 * 
+
 m_Region89 = lmer(log_R89 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeCHN)
 summary(m_Region89) # RC1fac        -2.303e-02  9.948e-03  2.103e+03  -2.315  0.02072 *  
                     # RC2fac        -2.315e-02  9.948e-03  2.103e+03  -2.327  0.02008 *  

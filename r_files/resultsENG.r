@@ -53,6 +53,9 @@ summary(m_Region8)  # RC2fac         0.05346    0.01112 73.16000   4.808 7.93e-0
 m_Region8 = lmer(log_R8 ~ RC1fac * RC2fac + (1|Participant)+(1|Item), wholeENG)
 summary(m_Region8)
 
+m_Region78 = lmer(log_R78 ~ RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeENG)
+summary(m_Region78) # RC2fac       0.025197   0.009694 75.950000   2.599   0.0112 *  
+
 m_Region78 = lmer(log_R78 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeENG)
 summary(m_Region78) # RC2fac         0.025201   0.009754 73.930000   2.584   0.0117 *
 m_Region89 = lmer(log_R89 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeENG)
