@@ -60,7 +60,7 @@ summary(m_Region9_CORR) # RC2fac          -0.04965    0.01338 1667.10000  -3.710
                         # RC1fac:RC2fac   -0.11517    0.02679 1667.80000  -4.298 1.82e-05 ***
 #------------------------------------------------------------------------------------------------------#
 m_Region10 = lmer(log_R10 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeCHN)
-summary(m_Region10) # RC2fac           0.03397    0.01084 2103.00000   3.134  0.00175 ** 
+summary(m_Region10) # RC2fac           0.03397    0.01084 2103.00000   -3.134  0.00175 ** 
 m_Region10_CORR = lmer(log_R10 ~ RC1fac * RC2fac + (1*log_R4*dprimeT|Participant)+(1*log_R4*dprimeT|Item), wholeCHN_CORR)
 summary(m_Region10_CORR) # RC2fac           0.04300    0.01225 1667.60000   3.510  0.00046 ***  
 #------------------------------------------------------------------------------------------------------#
@@ -90,6 +90,8 @@ summary(m_Region8910) # RC1fac        -2.293e-02  8.834e-03  2.103e+03  -2.595  
                       # RC2fac        -2.809e-02  8.834e-03  2.103e+03  -3.180  0.00149 ** 
                       # RC1fac:RC2fac -7.469e-02  1.767e-02  2.103e+03  -4.227 2.47e-05 ***
 
+CHN_R89_R8910 = aggregate(cbind(log_R89, log_R8910) ~ RC2, wholeCHN, mean)
+CHN_R89_R8910
 
 OS_SO = subset(wholeCHN, RC1fac==-0.5 & RC2fac==0.5| RC1fac==0.5 & RC2fac==-0.5)
 summary(OS_SO)
