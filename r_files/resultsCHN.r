@@ -221,3 +221,15 @@ summary(m_R89)
 wholeCHN$RCtypeReleveled = relevel(wholeCHN$RCtype, "SS")
 m_R11= lmer(log_R11 ~ RCtypeReleveled + (1|Participant)+(1|Item), wholeCHN)
 summary(m_R11)
+
+
+
+wholeCHN_RC1 = read.csv("/Users/ChongZhang/OneDrive/SelfPacedReading_PsychoPy/CHN_RC1(3v4).csv")
+head(wholeCHN_RC1)
+wholeCHN_RC1$OmS_3
+t.test(wholeCHN_RC1$OmS_3, wholeCHN_RC1$OmS_4)
+
+wholeCHN_RC2 = read.csv("/Users/ChongZhang/OneDrive/SelfPacedReading_PsychoPy/CHN_RC2(8v9).csv")
+head(wholeCHN_RC2)
+wholeCHN_RC2$OmS_8
+t.test(wholeCHN_RC2$OmS_8, wholeCHN_RC2$OmS_9)
